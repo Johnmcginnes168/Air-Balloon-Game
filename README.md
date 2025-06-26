@@ -25,7 +25,7 @@ To run this game, you'll need Python installed on your system. The game uses the
 1. Clone this repository to your local machine.
    
    ```bash
-   git clone https://github.com/yourusername/air-balloon-game.git
+   git clone https://github.com/Johnmcginnes168/Air-Balloon-Game.git
    cd air-balloon-game
 ``
 
