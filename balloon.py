@@ -1,9 +1,22 @@
+#############
+#
+#  Imports and Libraries
+#
+#############
+
 import pgzrun
 from random import randint
+
+#############
+#
+#  Constants and Initial Setup
+#
+#############
 
 WIDTH = 800
 HEIGHT = 600
 
+# Create Actors (objects) for game entities
 balloon = Actor("balloon")
 balloon.pos = 400, 300
 
@@ -16,6 +29,12 @@ house.pos = randint(800, 1600), 460
 tree = Actor("tree")
 tree.pos = randint(800, 1600), 450
 
+#############
+#
+#  Game Variables
+#
+#############
+
 bird_up = True
 up = False
 game_over = False
@@ -23,6 +42,12 @@ score = 0
 number_of_updates = 0
 
 scores = []
+
+#############
+#
+#  Functions for High Score Management
+#
+#############
 
 def update_high_scores():
     global score, scores
@@ -48,9 +73,14 @@ def display_high_scores():
     for high_score in scores:
         screen.draw.text(str(position) + ". " + high_score, (350, y), color="black")
         y += 25
-        position += 1                     
-    
-    
+        position += 1
+
+#############
+#
+#  Drawing and Screen Management
+#
+#############
+
 def draw():
     screen.blit("background", (0, 0))
     if not game_over:
@@ -62,6 +92,12 @@ def draw():
     else:
         display_high_scores()
 
+#############
+#
+#  Mouse Event Handlers
+#
+#############
+
 def on_mouse_down():
     global up
     up = True
@@ -71,6 +107,12 @@ def on_mouse_up():
     global up
     up = False
 
+#############
+#
+#  Bird Flap Logic
+#
+#############
+
 def flap():
     global bird_up
     if bird_up:
@@ -79,6 +121,12 @@ def flap():
     else:
         bird.image = "bird-up"
         bird_up = True
+
+#############
+#
+#  Game Update Logic
+#
+#############
 
 def update():
     global game_over, score, number_of_updates
@@ -120,7 +168,11 @@ def update():
        balloon.collidepoint(tree.x, tree.y):
         game_over = True
         update_high_scores()
-        
 
+#############
+#
+#  Start the Game Loop
+#
+#############
 
 pgzrun.go()
