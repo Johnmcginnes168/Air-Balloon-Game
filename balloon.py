@@ -51,7 +51,7 @@ scores = []
 
 def update_high_scores():
     global score, scores
-    filename = r"C:\Users\johnm\OneDrive\Desktop\Documents\Python Games\Air Balloon Game\high-scores.txt"
+    filename = r"C:\Users\johnm\OneDrive\Desktop\Documents\Python Games\Air Balloon Game\high-scores.txt" # Change this to the directory of the high-scores.txt file
     scores = []
     with open(filename, "r") as file:
         line = file.readline()
